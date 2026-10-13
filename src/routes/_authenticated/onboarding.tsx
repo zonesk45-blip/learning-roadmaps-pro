@@ -79,8 +79,8 @@ function Onboarding() {
           </div>
           <div><Label>Current skills (comma separated)</Label><Input value={f.skills} onChange={(e) => setF({ ...f, skills: e.target.value })} placeholder="Python, Excel, Communication" /></div>
           <div className="grid gap-6 md:grid-cols-2">
-            <div><Label>Budget per course: ${f.budget_usd}</Label><Slider className="mt-3" min={0} max={2000} step={10} value={[f.budget_usd]} onValueChange={([v]) => setF({ ...f, budget_usd: v })} /></div>
-            <div><Label>Hours per week: {f.hours_per_week}</Label><Slider className="mt-3" min={1} max={40} value={[f.hours_per_week]} onValueChange={([v]) => setF({ ...f, hours_per_week: v })} /></div>
+            <div><Label>Budget per course: ${f.budget_usd}</Label><Slider className="mt-3" min={0} max={2000} step={10} value={[f.budget_usd]} onValueChange={([v]) => setF({ ...f, budget_usd: v ?? 0 })} /></div>
+            <div><Label>Hours per week: {f.hours_per_week}</Label><Slider className="mt-3" min={1} max={40} value={[f.hours_per_week]} onValueChange={([v]) => setF({ ...f, hours_per_week: v ?? 1 })} /></div>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             <div><Label>Preferred level</Label>{sel("preferred_level", LEVELS)}</div>

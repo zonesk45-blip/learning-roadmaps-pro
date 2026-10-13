@@ -8,7 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable";
 
 export const Route = createFileRoute("/auth")({
-  validateSearch: (s: Record<string, unknown>) => ({ mode: s.mode === "signup" ? ("signup" as const) : undefined }),
+  validateSearch: (s: Record<string, unknown>): { mode?: "signup" } => ({ mode: s["mode"] === "signup" ? ("signup" as const) : undefined }),
   head: () => ({ meta: [{ title: "Sign in — CourseCompass" }, { name: "description", content: "Log in or create your CourseCompass account." }, { property: "og:title", content: "Sign in — CourseCompass" }, { property: "og:description", content: "Access your personalized course dashboard." }] }),
   component: AuthPage,
 });
