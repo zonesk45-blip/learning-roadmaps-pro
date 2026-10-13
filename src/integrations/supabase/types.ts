@@ -14,16 +14,343 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      bookmarks: {
+        Row: {
+          course_id: string
+          created_at: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          course_id: string
+          created_at?: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          course_id?: string
+          created_at?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bookmarks_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      colleges: {
+        Row: {
+          country: string
+          fees_usd: number
+          id: string
+          location: string
+          name: string
+          programs: string[]
+          rating: number
+          url: string | null
+        }
+        Insert: {
+          country: string
+          fees_usd: number
+          id?: string
+          location: string
+          name: string
+          programs?: string[]
+          rating: number
+          url?: string | null
+        }
+        Update: {
+          country?: string
+          fees_usd?: number
+          id?: string
+          location?: string
+          name?: string
+          programs?: string[]
+          rating?: number
+          url?: string | null
+        }
+        Relationships: []
+      }
+      courses: {
+        Row: {
+          avg_salary_usd: number
+          careers: string[]
+          certificate: boolean
+          created_at: string
+          description: string | null
+          domain: string
+          duration_weeks: number
+          featured: boolean
+          format: string
+          hours_per_week: number
+          id: string
+          institution: string | null
+          job_demand: number
+          language: string
+          level: string
+          price_usd: number
+          provider: string
+          rating: number
+          reviews_count: number
+          skills: string[]
+          students_count: number
+          title: string
+          topic: string
+          url: string | null
+        }
+        Insert: {
+          avg_salary_usd?: number
+          careers?: string[]
+          certificate?: boolean
+          created_at?: string
+          description?: string | null
+          domain: string
+          duration_weeks: number
+          featured?: boolean
+          format?: string
+          hours_per_week?: number
+          id?: string
+          institution?: string | null
+          job_demand?: number
+          language?: string
+          level: string
+          price_usd?: number
+          provider: string
+          rating?: number
+          reviews_count?: number
+          skills?: string[]
+          students_count?: number
+          title: string
+          topic: string
+          url?: string | null
+        }
+        Update: {
+          avg_salary_usd?: number
+          careers?: string[]
+          certificate?: boolean
+          created_at?: string
+          description?: string | null
+          domain?: string
+          duration_weeks?: number
+          featured?: boolean
+          format?: string
+          hours_per_week?: number
+          id?: string
+          institution?: string | null
+          job_demand?: number
+          language?: string
+          level?: string
+          price_usd?: number
+          provider?: string
+          rating?: number
+          reviews_count?: number
+          skills?: string[]
+          students_count?: number
+          title?: string
+          topic?: string
+          url?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          budget_usd: number
+          career_goal: string | null
+          country: string | null
+          created_at: string
+          education_level: string | null
+          email: string | null
+          full_name: string | null
+          hours_per_week: number
+          id: string
+          interests: string[]
+          learning_style: string | null
+          onboarded: boolean
+          preferred_format: string | null
+          preferred_level: string | null
+          skills: string[]
+          updated_at: string
+        }
+        Insert: {
+          budget_usd?: number
+          career_goal?: string | null
+          country?: string | null
+          created_at?: string
+          education_level?: string | null
+          email?: string | null
+          full_name?: string | null
+          hours_per_week?: number
+          id: string
+          interests?: string[]
+          learning_style?: string | null
+          onboarded?: boolean
+          preferred_format?: string | null
+          preferred_level?: string | null
+          skills?: string[]
+          updated_at?: string
+        }
+        Update: {
+          budget_usd?: number
+          career_goal?: string | null
+          country?: string | null
+          created_at?: string
+          education_level?: string | null
+          email?: string | null
+          full_name?: string | null
+          hours_per_week?: number
+          id?: string
+          interests?: string[]
+          learning_style?: string | null
+          onboarded?: boolean
+          preferred_format?: string | null
+          preferred_level?: string | null
+          skills?: string[]
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      reviews: {
+        Row: {
+          author_name: string | null
+          comment: string | null
+          course_id: string
+          created_at: string
+          id: string
+          rating: number
+          user_id: string
+        }
+        Insert: {
+          author_name?: string | null
+          comment?: string | null
+          course_id: string
+          created_at?: string
+          id?: string
+          rating: number
+          user_id: string
+        }
+        Update: {
+          author_name?: string | null
+          comment?: string | null
+          course_id?: string
+          created_at?: string
+          id?: string
+          rating?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reviews_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      roadmaps: {
+        Row: {
+          created_at: string
+          goal: string | null
+          id: string
+          steps: Json
+          summary: string | null
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          goal?: string | null
+          id?: string
+          steps?: Json
+          summary?: string | null
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          goal?: string | null
+          id?: string
+          steps?: Json
+          summary?: string | null
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      scholarships: {
+        Row: {
+          amount: string
+          deadline: string
+          domains: string[]
+          eligibility: string
+          id: string
+          name: string
+          sponsor: string
+          url: string | null
+        }
+        Insert: {
+          amount: string
+          deadline: string
+          domains?: string[]
+          eligibility: string
+          id?: string
+          name: string
+          sponsor: string
+          url?: string | null
+        }
+        Update: {
+          amount?: string
+          deadline?: string
+          domains?: string[]
+          eligibility?: string
+          id?: string
+          name?: string
+          sponsor?: string
+          url?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +477,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+    },
   },
 } as const
