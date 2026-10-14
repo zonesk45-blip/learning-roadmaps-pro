@@ -81,7 +81,7 @@ function Dashboard() {
         <Button asChild variant="soft" size="sm"><Link to="/courses">Browse all</Link></Button>
       </div>
       <div className="mt-4 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {top.map(({ c, score, reasons }) => <CourseCard key={c.id} course={c} score={score} reasons={reasons} />)}
+        {top.map(({ c, score, reasons }) => <CourseCard key={c.id} c={c} score={score} reasons={reasons} />)}
       </div>
 
       {(bookmarks?.length ?? 0) > 0 && (
@@ -92,7 +92,7 @@ function Dashboard() {
               const c = b.courses as unknown as Course | null;
               if (!c) return null;
               const { score, reasons } = scoreCourse(c, profile);
-              return <CourseCard key={b.course_id} course={c} score={score} reasons={reasons} />;
+              return <CourseCard key={b.course_id} c={c} score={score} reasons={reasons} />;
             })}
           </div>
         </>
