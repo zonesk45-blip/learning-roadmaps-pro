@@ -167,7 +167,7 @@ function Index() {
             ["Is CourseCompass free?", "Yes. Browsing, matching, comparing and roadmaps are free."],
             ["Can I update my roadmap later?", "Absolutely — regenerate it anytime and tick off milestones as you go."],
             ["Do you cover international colleges?", "Yes, colleges and scholarships across the US, UK, Europe and Asia."],
-          ].map(([q, a]) => (
+          ].map(([q, a]: [string, string]) => (
             <AccordionItem key={q} value={q}><AccordionTrigger>{q}</AccordionTrigger><AccordionContent className="text-muted-foreground">{a}</AccordionContent></AccordionItem>
           ))}
         </Accordion>
