@@ -162,12 +162,12 @@ function Index() {
       <section className="mx-auto max-w-3xl px-6 py-12">
         <h2 className="text-center text-4xl font-bold">Frequently asked <span className="text-gradient">questions</span></h2>
         <Accordion type="single" collapsible className="mt-8 glass-card px-6">
-          {[
+          {([
             ["How does the AI matching work?", "We score every course on your interests, career goal, skill gaps, budget, weekly time, preferred level, ratings and job-market demand, then explain why each one fits."],
             ["Is CourseCompass free?", "Yes. Browsing, matching, comparing and roadmaps are free."],
             ["Can I update my roadmap later?", "Absolutely — regenerate it anytime and tick off milestones as you go."],
             ["Do you cover international colleges?", "Yes, colleges and scholarships across the US, UK, Europe and Asia."],
-          ].map(([q, a]) => (
+          ] as [string, string][]).map(([q, a]) => (
             <AccordionItem key={q} value={q}><AccordionTrigger>{q}</AccordionTrigger><AccordionContent className="text-muted-foreground">{a}</AccordionContent></AccordionItem>
           ))}
         </Accordion>
